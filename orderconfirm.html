@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Placed</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        background: white;
+        padding: 50px 60px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+        margin: 20px 0 10px;
+        font-size: 36px;
+        color: #333;
+    }
+
+    p {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .checkmark-circle {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .checkmark-circle svg {
+        width: 120px;
+        height: 120px;
+        transition: transform 0.2s ease;
+    }
+
+    .circle {
+        stroke: #4CAF50;
+        stroke-width: 5;
+        fill: none;
+        stroke-dasharray: 380;
+        stroke-dashoffset: 380;
+        animation: stroke 1s ease forwards;
+    }
+
+    .check {
+        stroke: #4CAF50;
+        stroke-width: 5;
+        fill: none;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: stroke 0.8s 1s ease forwards;
+    }
+
+    @keyframes stroke {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: red;
+        top: 0;
+        opacity: 0.8;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="checkmark-circle">
+        <svg viewBox="0 0 120 120">
+            <a href="main.html">
+            <circle class="circle" cx="60" cy="60" r="55"/>
+            <polyline class="check" points="40,65 55,80 85,45"/>
+            </a>
+        </svg>
+    </div>
+
+    <h1>Order Placed</h1>
+    <p>Payment Done Successfully ✅</p>
+    <p>Thank You for Your Order!</p>
+</div>
+
+<script>
+    function createConfetti() {
+        const colors = ["#f94144","#f3722c","#f9c74f","#90be6d","#43aa8b","#577590"];
+        for (let i = 0; i < 150; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            document.body.appendChild(confetti);
+
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + "px";
+        }
+    }
+
+    window.onload = createConfetti;
+
+    // Added JavaScript for checkmark click
+    const checkmark = document.querySelector('.checkmark-circle svg');
+    checkmark.addEventListener('click', () => {
+        console.log('Checkmark clicked! Returning to main page...');
+        checkmark.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            checkmark.style.transform = 'scale(1)';
+        }, 200);
+    });
+</script>
+
+</body>
+</html>

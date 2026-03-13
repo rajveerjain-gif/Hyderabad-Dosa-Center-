@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYD Tiffin Center Explorer</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid orange;
+            width: 0;
+            animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        /* 🎬 Smooth Slide Animation */
+        body {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideIn 1s ease forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .p1 img, .p2 img, .p3 img, .p4 img, .p5 img, .p6 img {
+            padding: 6px;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #ffffff, #dcdcdc);
+            box-shadow: 
+                0 4px 10px rgba(0,0,0,0.2),
+                inset 0 2px 6px rgba(255,255,255,0.8);
+            transition: all 0.4s ease;
+            display: block;
+            margin: auto;
+        }
+
+        
+        .p1 img:hover, .p2 img:hover, .p3 img:hover, .p4 img:hover, .p5 img:hover, .p6 img:hover {
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 
+                0 8px 20px rgba(0,0,0,0.4),
+                0 0 15px rgba(255,165,0,0.7);
+        }
+
+        
+        .p1::after { content: "Hari Dosa"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+        .p2::after { content: "Tiffin Spot"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+        .p3::after { content: "South Express"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+        .p4::after { content: "Udupi Cafe"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+        .p5::after { content: "Sri Raghavendra"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+        .p6::after { content: "Tasty Tiffins"; display: block; text-align: center; font-weight: bold; margin-top: 5px; }
+
+        
+        .b1, .b2, .b3, .b4, .b5, .b6 {
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #ffcc70, #ff8c00);
+            color: white;
+            font-weight: bold;
+            box-shadow: 
+                0 4px 10px rgba(0,0,0,0.3),
+                inset 0 2px 5px rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        
+        .b1:hover, .b2:hover, .b3:hover, .b4:hover, .b5:hover, .b6:hover {
+            transform: scale(1.1);
+            background: linear-gradient(145deg, #ffa500, #ff4500);
+            box-shadow: 
+                0 6px 15px rgba(0,0,0,0.4),
+                0 0 12px rgba(255,140,0,0.8);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="heading">
+        <h1 class="typing">WELCOME TO HYD TIFFIN CENTER EXPLORER</h1>
+        <h3>Click on image to find location</h3>
+    </div>
+</header>
+
+<main>
+
+    <div class="grp1">
+        <a href="menu.html" >
+            <button class="b1">MENU</button>
+        </a>
+
+        <div class="p1">
+            <a href="https://share.google/zFvgjMqvYziEN64EF" >
+                <img src="https://content.jdmagicbox.com/v2/comp/ahmedabad/v7/079pxx79.xx79.241202210900.l9v7/catalogue/hari-dosa-nikol-an-authentic-south-indian-ahmedabad-south-indian-restaurants-biofpnohq1.jpg" height="100" width="100">
+            </a>
+        </div>
+
+        <a href="menu2.html" >
+            <button class="b4">MENU</button>
+        </a>
+
+        <div class="p2">
+            <a href="https://share.google/gWG8mRsFh71Id5OXo" >
+                <img src="https://pbs.twimg.com/profile_images/1861083535215628288/7lMEqVxb_400x400.jpg" height="100" width="100">
+            </a>
+        </div>
+    </div>
+
+
+    <div class="grp2">
+        <a href="menu3.html">
+            <button class="b2">MENU</button>
+        </a>
+
+        <div class="p3">
+            <a href="https://share.google/pejlzLUG84I9RF0dM" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaGQ2ZcDM_8gJspRf9alDa9SynOYQ3bGc7Q&s" height="100" width="100">
+            </a>
+        </div>
+
+        <a href="menu4.html" >
+            <button class="b5">MENU</button>
+        </a>
+
+        <div class="p4">
+            <a href="https://share.google/B1TRROAj5oAxv6rV8" >
+                <img src="https://udupicafe.co.in/wp-content/uploads/2024/10/logo-high-1.png" height="100" width="100">
+            </a>
+        </div>
+    </div>
+
+
+    <div class="grp3">
+        <a href="menu5.html" >
+            <button class="b3">MENU</button>
+        </a>
+
+        <div class="p5">
+            <a href="https://share.google/JwzAGKD99zq4OnOHf">
+                <img src="https://sriraghavendra.in/Sri%20Ragavendra.png" height="100" width="100">
+            </a>
+        </div>
+
+        <a href="menu6.html" >
+            <button class="b6">MENU</button>
+        </a>
+
+        <div class="p6">
+            <a href="https://share.google/iodyYcq3CnxqIw6bu" >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-Wm98qI7i-SnfHT63Qnl5tBVz_PUDge7eQ&s" height="100" width="100">
+            </a>
+        </div>
+    </div>
+
+</main>
+<script>
+    // Smooth scroll to each menu section when button is clicked
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = btn.parentElement.getAttribute('href');
+            if (href) {
+                window.open(href, '_blank');
+            }
+        });
+    });
+
+    // Add a small bounce animation on image click
+    document.querySelectorAll('.p1 img, .p2 img, .p3 img, .p4 img, .p5 img, .p6 img').forEach(img => {
+        img.addEventListener('click', () => {
+            img.style.transform = 'scale(1.2) rotate(5deg)';
+            setTimeout(() => {
+                img.style.transform = '';
+            }, 300);
+        });
+    });
+
+    // Typing animation restart on click
+    const typingText = document.querySelector('.typing');
+    typingText.addEventListener('click', () => {
+        typingText.style.animation = 'none';
+        void typingText.offsetWidth; // trigger reflow
+        typingText.style.animation = 'typing 4s steps(40, end) forwards, blink 0.8s infinite';
+    });
+</script>
+
+</body>
+</html>

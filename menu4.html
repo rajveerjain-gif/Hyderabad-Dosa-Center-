@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Udupi - Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(/html/dosa_photo.jpg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #8b4513;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-section h2 {
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 5px;
+            color: #8b4513;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-btn {
+            margin-left: 8px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .add-btn:active {
+            transform: scale(1.3);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #8b4513;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1001;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+            transition: right 0.4s ease;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-panel h2 {
+            margin-top: 0;
+            color: #8b4513;
+        }
+
+        .close-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item button.remove-btn {
+            background: none;
+            border: none;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Udupi Tiffins</h1>
+    <p>Traditional South Indian Vegetarian Cuisine</p>
+</header>
+
+<button class="cart-btn" onclick="toggleCart()">Cart</button>
+
+<div class="cart-panel" id="cartPanel">
+    <button class="close-btn" onclick="toggleCart()">Close</button>
+    <h2>Your Cart</h2>
+
+    <div id="cartItems">No items added yet.</div>
+    <div><strong>Total: ₹<span id="totalAmount">0</span></strong></div>
+    <a href="scanner.html" >
+    <button class="order-btn">Place Order</button>
+    </a>
+</div>
+
+<div class="menu-section">
+    <h2>Dosa Varieties</h2>
+
+    <div class="menu-item">
+        <span>Plain Dosa</span>
+        <span>
+            <span class="price">&#8377 30</span>
+            <button class="add-btn" onclick="addToCart('Plain Dosa',30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Masala Dosa</span>
+        <span>
+            <span class="price">&#8377 40</span>
+            <button class="add-btn" onclick="addToCart('Masala Dosa',40)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Mysore Dosa</span>
+        <span>
+            <span class="price">&#8377 45</span>
+            <button class="add-btn" onclick="addToCart('Mysore Dosa',45)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Rava Dosa</span>
+        <span>
+            <span class="price">&#8377 40</span>
+            <button class="add-btn" onclick="addToCart('Rava Dosa',40)">+</button>
+        </span>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Idli & Vada</h2>
+
+    <div class="menu-item">
+        <span>Idli (2 pcs)</span>
+        <span>
+            <span class="price">&#8377 30</span>
+            <button class="add-btn" onclick="addToCart('Idli (2 pcs)',30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Medu Vada</span>
+        <span>
+            <span class="price">&#8377 30</span>
+            <button class="add-btn" onclick="addToCart('Medu Vada',30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Idli Vada Combo</span>
+        <span>
+            <span class="price">&#8377 40</span>
+            <button class="add-btn" onclick="addToCart('Idli Vada Combo',40)">+</button>
+        </span>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Beverages</h2>
+
+    <div class="menu-item">
+        <span>Filter Coffee</span>
+        <span>
+            <span class="price">&#8377 20</span>
+            <button class="add-btn" onclick="addToCart('Filter Coffee',20)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Masala Chai</span>
+        <span>
+            <span class="price">&#8377 20</span>
+            <button class="add-btn" onclick="addToCart('Masala Chai',20)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Badam Milk</span>
+        <span>
+            <span class="price">&#8377 60</span>
+            <button class="add-btn" onclick="addToCart('Badam Milk',60)">+</button>
+        </span>
+    </div>
+</div>
+
+<footer>
+    © 2026 Udupi | All Rights Reserved
+</footer>
+
+<script>
+    function toggleCart() {
+        document.getElementById("cartPanel").classList.toggle("open");
+    }
+
+    let cart = {};
+
+    function addToCart(name, price) {
+        if (cart[name]) {
+            cart[name].quantity++;
+        } else {
+            cart[name] = { price: price, quantity: 1 };
+        }
+        updateCart();
+    }
+
+    function removeFromCart(name) {
+        delete cart[name];
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById("cartItems");
+        const totalAmount = document.getElementById("totalAmount");
+
+        cartItems.innerHTML = "";
+        let total = 0;
+
+        for (let item in cart) {
+            let itemTotal = cart[item].price * cart[item].quantity;
+            total += itemTotal;
+
+            let div = document.createElement("div");
+            div.classList.add("cart-item");
+            div.innerHTML = `
+                <span>${item} x ${cart[item].quantity}</span>
+                <span>₹${itemTotal} <button class="remove-btn" onclick="removeFromCart('${item}')">×</button></span>
+            `;
+            cartItems.appendChild(div);
+        }
+
+        if (Object.keys(cart).length === 0) {
+            cartItems.innerHTML = "No items added yet.";
+        }
+
+        totalAmount.textContent = total;
+    }
+</script>
+
+</body>
+</html>

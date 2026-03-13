@@ -1,0 +1,103 @@
+
+h1{
+    text-align: center;
+}
+.container
+{
+    display: flex;
+}
+h3{text-align: center;
+}
+body{
+    background-image: url(/html/dosa_photo.jpg);
+}
+.heading{
+    background-color:white ;
+    margin: 0;
+}
+.grp1,.grp2,.grp3{
+    display: flex;
+
+}
+.p1,.p3,.p5{
+    margin-left: auto;
+    margin-right: 200px;  
+}
+.p2,.p4,.p6{
+    margin-right: auto;
+}
+.p1,.p2,.p3,.p4,.p5,.p6{
+    margin-top: 50px;
+    transition: all 0.5s ease-in;
+}
+.p6:hover{
+  transform: scale(1.25);
+}
+.p5:hover{
+  transform: scale(1.25);
+}
+.p4:hover{
+  transform: scale(1.25);
+}
+.p3:hover{
+  transform: scale(1.25);
+}
+.p2:hover{
+  transform: scale(1.25);
+}
+.p1:hover{
+  transform: scale(1.25);
+}
+.b1,.b2,.b3{
+  height: 80px;
+  width: 80px;
+  margin-top: 50px;
+  margin-left: auto;
+}
+
+.b4,.b5,.b6{
+  height: 80px;
+  width: 80px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 100px;
+}
+.b1:hover{
+  transform: scale(1.25);
+}
+.b2:hover{
+  transform: scale(1.25);
+}
+.b3:hover{
+  transform: scale(1.25);
+}
+.b4:hover{
+  transform: scale(1.25);
+}
+.b5:hover{
+  transform: scale(1.25);
+}
+.b6:hover{
+  transform: scale(1.25);
+}
+.b1{
+  background-color: #b22222;
+}
+.b4{
+  background-color: #8b0000;
+}
+.b2{
+  background-color:#006400 ;
+}
+.b5{
+  background-color: #8b4513;
+}
+.b3{
+  background-color: #4b0082;
+}
+.b6{
+  background-color: #b8860b;
+}
+
+
+

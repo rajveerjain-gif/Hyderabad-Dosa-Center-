@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anapurna Tiffins - Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(/html/dosa_photo.jpg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #006400;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-section h2 {
+            border-bottom: 2px solid #006400;
+            padding-bottom: 5px;
+            color: #006400;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-btn {
+            background-color: #006400;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .add-btn:active {
+            transform: scale(1.3);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #006400;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1001;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+            transition: right 0.4s ease;
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-panel h2 {
+            margin-top: 0;
+            color: #006400;
+        }
+
+        .close-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item button.remove-btn {
+            background: none;
+            border: none;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 15px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Anapurna Tiffins</h1>
+    <p>Pure Vegetarian South Indian Delights</p>
+</header>
+
+<button class="cart-btn" onclick="toggleCart()">Cart</button>
+
+<div class="cart-panel" id="cartPanel">
+    <button class="close-btn" onclick="toggleCart()">Close</button>
+    <h2>Your Cart</h2>
+    <div id="cartItems">
+        <p id="emptyCart">No items added yet.</p>
+    </div>
+    <div class="total" id="totalPrice">Total: ₹0</div>
+    <a href="scanner.html" >
+    <button class="order-btn">Place Order</button>
+    </a>
+</div>
+
+<div class="menu-section">
+    <h2>Dosa Varieties</h2>
+
+    <div class="menu-item">
+        <span>Plain Dosa</span>
+        <span>
+            <span class="price">₹30</span>
+            <button class="add-btn" onclick="addToCart('Plain Dosa', 30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Masala Dosa</span>
+        <span>
+            <span class="price">₹40</span>
+            <button class="add-btn" onclick="addToCart('Masala Dosa', 40)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Onion Dosa</span>
+        <span>
+            <span class="price">₹50</span>
+            <button class="add-btn" onclick="addToCart('Onion Dosa', 50)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Ghee Roast Dosa</span>
+        <span>
+            <span class="price">₹60</span>
+            <button class="add-btn" onclick="addToCart('Ghee Roast Dosa', 60)">+</button>
+        </span>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Idli & Vada</h2>
+
+    <div class="menu-item">
+        <span>Idli (2 pcs)</span>
+        <span>
+            <span class="price">₹30</span>
+            <button class="add-btn" onclick="addToCart('Idli (2 pcs)', 30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Medu Vada</span>
+        <span>
+            <span class="price">₹30</span>
+            <button class="add-btn" onclick="addToCart('Medu Vada', 30)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Sambar Idli</span>
+        <span>
+            <span class="price">₹60</span>
+            <button class="add-btn" onclick="addToCart('Sambar Idli', 60)">+</button>
+        </span>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Beverages</h2>
+
+    <div class="menu-item">
+        <span>Filter Coffee</span>
+        <span>
+            <span class="price">₹20</span>
+            <button class="add-btn" onclick="addToCart('Filter Coffee', 20)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Masala Chai</span>
+        <span>
+            <span class="price">₹20</span>
+            <button class="add-btn" onclick="addToCart('Masala Chai', 20)">+</button>
+        </span>
+    </div>
+
+    <div class="menu-item">
+        <span>Butter Milk</span>
+        <span>
+            <span class="price">₹40</span>
+            <button class="add-btn" onclick="addToCart('Butter Milk', 40)">+</button>
+        </span>
+    </div>
+</div>
+
+<footer>
+    © 2026 Anapurna Tiffins | All Rights Reserved
+</footer>
+
+<script>
+    let cart = {};
+
+    function toggleCart() {
+        document.getElementById("cartPanel").classList.toggle("open");
+    }
+
+    function addToCart(item, price) {
+        if (cart[item]) {
+            cart[item].quantity += 1;
+        } else {
+            cart[item] = { price: price, quantity: 1 };
+        }
+        updateCart();
+    }
+
+    function removeFromCart(item) {
+        delete cart[item];
+        updateCart();
+    }
+
+    function updateCart() {
+        let cartItemsDiv = document.getElementById("cartItems");
+        let totalPriceDiv = document.getElementById("totalPrice");
+        cartItemsDiv.innerHTML = "";
+        let total = 0;
+
+        for (let item in cart) {
+            let itemTotal = cart[item].price * cart[item].quantity;
+            total += itemTotal;
+
+            let div = document.createElement("div");
+            div.classList.add("cart-item");
+            div.innerHTML = `
+                <span>${item} x ${cart[item].quantity}</span>
+                <span>₹${itemTotal} <button class="remove-btn" onclick="removeFromCart('${item}')">×</button></span>
+            `;
+            cartItemsDiv.appendChild(div);
+        }
+
+        if (Object.keys(cart).length === 0) {
+            cartItemsDiv.innerHTML = '<p id="emptyCart">No items added yet.</p>';
+        }
+
+        totalPriceDiv.innerHTML = "Total: ₹" + total;
+    }
+</script>
+
+</body>
+</html>
